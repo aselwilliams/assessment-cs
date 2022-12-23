@@ -1,0 +1,38 @@
+Results for the extraLargeArray
+insert 2.027627474 s = 2027.627474 ms = 2027627.474 μs
+append 5.269652 ms = 5269.652 μs
+
+Results for the largeArray
+insert 14.93929 ms = 14939.29 μs
+append 823.274 μs
+
+Results for the mediumArray
+insert 271.203 μs
+append 317.321 μs
+
+Results for the smallArray
+insert 73.861 μs
+append 566.21 μs
+
+Results for the tinyArray
+insert 61.57 μs
+append 146.504 μs
+
+┌─────────────────┬─────────────────┬───────────────┐
+│     (index)     │     insert      │    append     │
+├─────────────────┼─────────────────┼───────────────┤
+│ extraLargeArray │ '2.027627474 s' │ '5.269652 ms' │
+│   largeArray    │  '14.93929 ms'  │ '823.274 μs'  │
+│   mediumArray   │  '271.203 μs'   │ '317.321 μs'  │
+│   smallArray    │   '73.861 μs'   │  '566.21 μs'  │
+│    tinyArray    │   '61.57 μs'    │ '146.504 μs'  │
+└─────────────────┴─────────────────┴───────────────┘
+
+1 ms = 0.001 sec.
+1 ms = 1,000 µs
+
+Because of the nature of how .push() and .unshift() functions work I see that as the size of array grows the runtime of the function that uses .unshift() becomes larger than the runtime of the function that uses .push(). Initially when size of array is small both functions have comparable speed that is measured in micro seconds. When the size of array is medium the runtime of .push() is close the runtime of .unshift().As the array size gets larger runtime of .unshift() started increasing dramatically making it 4 times longer than .push() runtime in ms.
+
+Function that uses .unshift() has to move all the elements that already present in the Array.  So it would have to move the element at position N to position N+1, N1 to N1+1, N2 to N2+1 etc. But, function the uses .push() has to insert an element at the end of the array, so none of the Array elements' index has to change. That's why it is more efficient to use .push() to get better runtime.
+
+To sum this up .unshift() has worse time complexity because for each new insertion each element in the array has to be relocated (shifted) to make space for the new element and that becomes a lot of operations (expensive) as the array gets larger. On the other hand .push() knows exactly to locate new element to the end of the array and does the same amount of work regardless of the size of the array. 
