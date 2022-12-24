@@ -21,7 +21,7 @@ const addToZero = (arr) => {
   console.log(addToZero([1]))
   console.log(addToZero([1, 2, 3]))
   console.log(addToZero([1, 2, 3, -2]))
-//Time Complexity: nLog(n) 
+//Time Complexity: O(nLogn) 
 //Space Complexity: O(1)
 
 const hasUniqueChars = (word) => {
@@ -93,4 +93,4 @@ const hasUniqueChars = (word) => {
   console.log(findLongestWord(["hi", "hello", "holidays"]))
   console.log(findLongestWord(["merry", "christmas"]))
   //Time Complexity: O(n)
-  //Space Complexity: O(n)
+  //Space Complexity: O(1)
